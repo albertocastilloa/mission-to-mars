@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--Favicon-->
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+		<link rel="manifest" href="site.webmanifest">
+		
+		<title>Mars Fun Facts</title>
+		<!--JS files-->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+		<!--CSS files-->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		
+		
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="jumbotron text-center">
+			  <h1 class="display-4">Mission to MarsX</h1>
+			  <p class="lead">
+			    <a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a>
+			  </p>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h1>Latest Mars News</h1>
+					<span class="font-weight-bold">{{ mars_app.news_title }}</span><br/>
+					<span class="font-weight-normal">{{ mars_app.news_teaser }}</span>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-8">
+					<h1>Featured Mars Image</h1>
+					<img class="mx-auto" width="100%" src="{{ mars_app.featured_image_url }}">
+				</div>
+				<div class="col-4">
+					<div class="row">
+						<h4>Current weather on Mars</h4>
+						<p>{{ mars_app.mars_weather }}</p>
+					</div>
+					<div class="row">
+						<h4>Mars Facts</h4>
+						{{ mars_app.mars_facts|safe }}
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<br/>
+					<h3 class="font-weight-bold text-center">Mars Hemispheres</h3>
+					<hr/>
+					<div class="row">
+						<div class="col-6">
+							<div class="card">
+								<img class="card-img-top" src="{{ mars_app.mars_hemis[1]['img_url'] }}" alt="Card image cap">
+								<div class="card-body">
+									<p class="card-text font-weight-bold">{{ mars_app.mars_hemis[1]['title'] }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="card">
+								<img class="card-img-top" src="{{ mars_app.mars_hemis[0]['img_url'] }}" alt="Card image cap">
+								<div class="card-body">
+									<p class="card-text font-weight-bold">{{ mars_app.mars_hemis[0]['title'] }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="card">
+								<img class="card-img-top" src="{{ mars_app.mars_hemis[2]['img_url'] }}" alt="Card image cap">
+								<div class="card-body">
+									<p class="card-text font-weight-bold">{{ mars_app.mars_hemis[2]['title'] }}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-6">
+							<div class="card">
+								<img class="card-img-top" src="{{ mars_app.mars_hemis[3]['img_url'] }}" alt="Card image cap">
+								<div class="card-body">
+									<p class="card-text font-weight-bold">{{ mars_app.mars_hemis[3]['title'] }}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer class="page-footer font-small bg-secondary" id="footer">
+			<div class="footer-copyright text-center">
+				<span class="text-white">&copy; Created by Alberto Castillo - Tec de Monterrey 2019</span>
+			</div>
+		</footer>
+	</body>
+</html>
